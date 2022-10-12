@@ -1,0 +1,54 @@
+// NAMA		: Aryathama Raditya Agung
+// NRP		: 5026221182
+// Jurusan	: Sistem Informasi
+
+#include <iostream>
+#include <cmath>
+
+#define GRAVITASI 10 //10 m/s^2
+#define START_PENGUKURAN 1 //pengukuran dimulai dari 1 meter
+#define SUDUT 45 //sudut elevasi tembakan
+
+float mencari_v0(float vtan, int losses)
+{
+	/* Tulis fungsi mencari v0 kalian disini */
+  	return (vtan-losses);
+}
+
+int speed_dgn_loss(int losses)
+{
+	/* tulis fungsi hitung_loss kalian disini */
+    return 0;
+}
+
+int main() {
+    /* tulis kode utama kalian disini */
+  
+  	/* input adalah kecepatan tangensial maksimum roller */
+    int input;
+    int losses;
+    
+  	/* std::cin >> input */
+    std::cin >> input;
+    
+     if(input <= 10 && input >= 1) {
+    losses = 1;
+  }
+  else if(input <= 20 && input >= 11) {
+    losses = 3;
+  }
+  else if(input <= 30 && input >= 21) {
+    losses = 5;
+  }
+  else {
+    std::cout << "Please input an integer less than or equal to 30." << std::endl;
+  }
+    
+    float jarak = (((pow((mencari_v0(input, losses)), 2)) * sin(2 * SUDUT * M_PI/180))/GRAVITASI);
+    float kecepatan_tangensial = input;
+  
+  	/* std::cout << jarak << " " << kecepatan tangensial << std::endl */
+    std::cout << jarak << " " << kecepatan_tangensial;
+        
+    return 0;
+}
